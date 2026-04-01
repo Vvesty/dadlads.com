@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dad Lads — The safe space for every kind of dad. Anonymous, judgement free, built for you. Join the waitlist.">
+    <title>Dad Lads — Keep it on the DL</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+
+        /* ── RESET & BASE ── */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #0d1b2a;
+            --navy-light: #1a2e45;
+            --amber: #e8a020;
+            --amber-dark: #c4851a;
+            --white: #ffffff;
+            --grey: #8a9ab0;
+            --font: 'Inter', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--navy);
+            color: var(--white);
+            font-family: var(--font);
+            line-height: 1.6;
+        }
+
+        /* ── NAVIGATION ── */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(13, 27, 42, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(232, 160, 32, 0.15);
+        }
+
+        nav img {
+            height: 45px;
+            width: auto;
+        }
+
+        nav a {
+            background-color: var(--amber);
+            color: var(--navy);
+            text-decoration: none;
+            padding: 10px 24px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: background-color 0.2s ease;
+        }
+
+        nav a:hover {
+            background-color: var(--amber-dark);
+        }
+
+        /* ── HERO ── */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 120px 40px 80px;
+            background: radial-gradient(ellipse at top, #1a2e45 0%, #0d1b2a 70%);
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            line-height: 1.2;
+            max-width: 800px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 span {
+            color: var(--amber);
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: var(--grey);
+            max-width: 600px;
+            margin-bottom: 48px;
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            background-color: var(--amber);
+            color: var(--navy);
+            padding: 16px 36px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--amber-dark);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--white);
+            padding: 16px 36px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: border-color 0.2s ease;
+            cursor: pointer;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--amber);
+            color: var(--amber);
+        }
+
+        .hero-badge {
+            margin-top: 48px;
+            color: var(--grey);
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .hero-badge span {
+            color: var(--amber);
+            font-weight: 600;
+        }
+
+        /* ── SECTIONS ── */
+        section {
+            padding: 100px 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            color: var(--amber);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        h2 {
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 24px;
+        }
+
+        h2 span {
+            color: var(--amber);
+        }
+
+        /* ── PROBLEM ── */
+        .problem {
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .stat-card {
+            background-color: var(--navy-light);
+            border: 1px solid rgba(232, 160, 32, 0.15);
+            border-radius: 12px;
+            padding: 32px;
+        }
+
+        .stat-card .number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--amber);
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+
+        .stat-card p {
+            color: var(--grey);
+            font-size: 0.95rem;
+        }
+
+        /* ── SOLUTION ── */
+        .solution {
+            border-top: 1px solid rgba(255,255,255,0.08);
+            text-align: center;
+        }
+
+        .solution p {
+            color: var(--grey);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 16px;
+        }
+
+        .solution .tagline {
+            color: var(--amber);
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-top: 32px;
+        }
+
+        /* ── WHO IT'S FOR ── */
+        .who {
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .dad-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin-top: 48px;
+        }
+
+        .dad-card {
+            background-color: var(--navy-light);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 12px;
+            padding: 28px;
+            transition: border-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .dad-card:hover {
+            border-color: rgba(232, 160, 32, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .dad-card .emoji {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        .dad-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--white);
+        }
+
+        .dad-card p {
+            font-size: 0.875rem;
+            color: var(--grey);
+        }
+
+        /* ── PROMISE ── */
+        .promise {
+            border-top: 1px solid rgba(255,255,255,0.08);
+            background-color: var(--navy-light);
+            max-width: 100%;
+            padding: 100px 40px;
+        }
+
+        .promise-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .promise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .promise-item {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .promise-item .icon {
+            font-size: 1.8rem;
+        }
+
+        .promise-item h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--amber);
+        }
+
+        .promise-item p {
+            font-size: 0.875rem;
+            color: var(--grey);
+        }
+
+        /* ── WAITLIST ── */
+        .waitlist {
+            border-top: 1px solid rgba(255,255,255,0.08);
+            text-align: center;
+        }
+
+        .waitlist p {
+            color: var(--grey);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 48px;
+        }
+
+        .waitlist-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        .waitlist-form input {
+            width: 100%;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.15);
+            background-color: var(--navy-light);
+            color: var(--white);
+            font-family: var(--font);
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+
+        .waitlist-form input:focus {
+            border-color: var(--amber);
+        }
+
+        .waitlist-form input::placeholder {
+            color: var(--grey);
+        }
+
+        .waitlist-form button {
+            width: 100%;
+        }
+
+        .form-note {
+            color: var(--grey);
+            font-size: 0.8rem;
+            margin-top: 8px;
+        }
+
+        .success-message {
+            display: none;
+            background-color: rgba(232, 160, 32, 0.1);
+            border: 1px solid var(--amber);
+            border-radius: 8px;
+            padding: 20px 32px;
+            color: var(--amber);
+            font-weight: 600;
+            font-size: 1rem;
+            margin-top: 16px;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        footer img {
+            height: 40px;
+            margin-bottom: 24px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            color: var(--grey);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--amber);
+        }
+
+        footer .legal {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        footer .legal a {
+            color: var(--grey);
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: color 0.2s ease;
+        }
+
+        footer .legal a:hover {
+            color: var(--white);
+        }
+
+        footer .copyright {
+            color: var(--grey);
+            font-size: 0.8rem;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            nav {
+                padding: 16px 20px;
+            }
+
+            .hero {
+                padding: 100px 20px 60px;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+
+            .promise {
+                padding: 60px 20px;
+            }
+
+            footer {
+                padding: 40px 20px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+                max-width: 320px;
+            }
+
+            .btn-primary, .btn-secondary {
+                text-align: center;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <img src="https://drive.google.com/uc?export=view&id=15ElNv1Cuaj-FQi17dL8zbfM4MygNKxXK" alt="Dad Lads Logo">
+        <a href="#waitlist">Join The Waitlist</a>
+    </nav>
+
+    <!-- HERO -->
+    <div class="hero">
+        <h1>Being a dad is the hardest thing you'll ever do.<br><span>You don't have to do it alone.</span></h1>
+        <p>A community built for every kind of dad. No judgement. No pressure. Just lads who get it.</p>
+        <div class="hero-buttons">
+            <a href="#waitlist" class="btn-primary">Join The Waitlist — It's Free</a>
+            <a href="#about" class="btn-secondary">Find Out More</a>
+        </div>
+        <div class="hero-badge">
+            🔒 <span>Anonymous by default.</span> Nobody needs to know you're here.
+        </div>
+    </div>
+
+    <!-- PROBLEM -->
+    <section class="problem" id="about">
+        <p class="section-label">The Reality</p>
+        <h2>The Truth About <span>Being A Dad</span></h2>
+        <p style="color: var(--grey); max-width: 700px;">The numbers are stark. But behind every number is a dad who deserves better.</p>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="number">15%</div>
+                <p>of dads have zero close friends. Not one person they can truly talk to.</p>
+            </div>
+            <div class="stat-card">
+                <div class="number">1 in 10</div>
+                <p>new dads experience postnatal depression — and almost none of them talk about it.</p>
+            </div>
+            <div class="stat-card">
+                <div class="number">72%</div>
+                <p>of dads say they feel pressure to appear strong even when they're struggling.</p>
+            </div>
+            <div class="stat-card">
+                <div class="number">0</div>
+                <p>safe spaces built specifically for dads who need to talk. Until now.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOLUTION -->
+    <section class="solution">
+        <p class="section-label">The Solution</p>
+        <h2>What Is <span>Dad Lads?</span></h2>
+        <p>Dad Lads — DL — is a safe space built for every kind of dad.</p>
+        <p>A place to talk, to listen, to find your lads. Anonymous by default. Visible by choice. Nobody needs to know you're here. But your lads always will be.</p>
+        <div class="tagline">Keep it on the DL. 👊</div>
+    </section>
+
+    <!-- WHO IT'S FOR -->
+    <section class="who">
+        <p class="section-label">Who It's For</p>
+        <h2>Whatever Kind Of Dad You Are — <span>You Belong Here</span></h2>
+        <div class="dad-grid">
+            <div class="dad-card">
+                <div class="emoji">🍼</div>
+                <h3>New Dads</h3>
+                <p>Overwhelmed and not sure you're doing it right.</p>
+            </div>
+            <div class="dad-card">
+                <div class="emoji">💍</div>
+                <h3>Married Dads</h3>
+                <p>Feeling invisible despite being right there.</p>
+            </div>
+            <div class="dad-card">
+                <div class="emoji">👨</div>
+                <h3>Single Dads</h3>
+                <p>Doing everything alone and exhausted.</p>
+            </div>
+            <div class="dad-card">
+                <div class="emoji">⚖️</div>
+                <h3>Divorced Dads</h3>
+                <p>Missing your kids and battling systems.</p>
+            </div>
+            <div class="dad-card">
+                <div class="emoji">🕊️</div>
+                <h3>Widowed Dads</h3>
+                <p>Grieving and parenting at the same time.</p>
+            </div>
+            <div class="dad-card">
+                <div class="emoji">💔</div>
+                <h3>Baby Loss Dads</h3>
+                <p>Carrying grief nobody talks about.</p>
+            </div>
+            <div class="dad-card">
+                <div class="emoji">😔</div>
+                <h3>Lonely Dads</h3>
+                <p>When was the last time you had a real conversation?</p>
+            </div>
+            <div class="dad-card">
+                <div class="emoji">☠️</div>
+                <h3>Bereaved Dads</h3>
+                <p>The loss no parent should ever know.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROMISE -->
+    <div class="promise">
+        <div class="promise-inner">
+            <p class="section-label">The DL Promise</p>
+            <h2>Your Privacy. <span>Always.</span></h2>
+            <p style="color: var(--grey); max-width: 700px;">Dad Lads was built with one thing in mind — your dignity and your privacy.</p>
+            <div class="promise-grid">
+                <div class="promise-item">
+                    <div class="icon">🔒</div>
+                    <h3>Anonymous By Default</h3>
+                    <p>Nobody knows who you are unless you choose to share.</p>
+                </div>
+                <div class="promise-item">
+                    <div class="icon">📱</div>
+                    <h3>Discreet App Icon</h3>
+                    <p>The icon tells nobody what the app is. Just DL.</p>
+                </div>
+                <div class="promise-item">
+                    <div class="icon">👁️</div>
+                    <h3>DL Mode</h3>
+                    <p>Screen blurs automatically if someone is nearby.</p>
+                </div>
+                <div class="promise-item">
+                    <div class="icon">🛡️</div>
+                    <h3>Your Data Is Yours</h3>
+                    <p>We will never sell your data. Ever. Full stop.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- WAITLIST -->
+    <section class="waitlist" id="waitlist">
+        <p class="section-label">Coming Soon</p>
+        <h2>Be One Of The First <span>Dads In</span></h2>
+        <p>Dad Lads is coming soon. Join the waitlist and be the first to know when we launch. No spam. No nonsense. Just Dad Lads.</p>
+        <div class="waitlist-form">
+            <input type="email" id="emailInput" placeholder="Enter your email address" required>
+            <button class="btn-primary" onclick="submitWaitlist()">Join The Waitlist — It's Free</button>
+            <p class="form-note">🔒 No spam. Unsubscribe any time. Your data stays private.</p>
+            <div class="success-message" id="successMessage">
+                👊 You're in! We'll be in touch when Dad Lads launches.
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <img src="https://drive.google.com/uc?export=view&id=15ElNv1Cuaj-FQi17dL8zbfM4MygNKxXK" alt="Dad Lads Logo">
+        <div class="social-links">
+            <a href="https://instagram.com/dadladsofficial" target="_blank">Instagram</a>
+            <a href="https://tiktok.com/@dadladsofficial" target="_blank">TikTok</a>
+            <a href="https://x.com/dadladsofficial" target="_blank">X</a>
+            <a href="https://threads.net/@dadladsofficial" target="_blank">Threads</a>
+        </div>
+        <div class="legal">
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/terms">Terms of Service</a>
+            <a href="mailto:hello@dadlads.com">hello@dadlads.com</a>
+        </div>
+        <p class="copyright">© 2026 Dad Lads. All rights reserved.</p>
+    </footer>
+
+    <!-- WAITLIST SCRIPT -->
+    <script>
+        function submitWaitlist() {
+            const email = document.getElementById('emailInput').value;
+            const success = document.getElementById('successMessage');
+
+            if (!email || !email.includes('@')) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+
+            // Google Sheets submission via Google Apps Script
+            const scriptURL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+
+            fetch(scriptURL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email: email, timestamp: new Date().toISOString() })
+            })
+            .then(() => {
+                document.getElementById('emailInput').value = '';
+                success.style.display = 'block';
+            })
+            .catch(() => {
+                alert('Something went wrong. Please try again.');
+            });
+        }
+    </script>
+
+</body>
+</html>
