@@ -3,9 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Welcome to DadLads</h1>
-</body>
-</html>
+    <meta name="description" content="Dad Lads — The safe space for every kind of dad. Anonymous, judgement free, built for you. Join the waitlist.">
+    <title>Dad Lads — Keep it on the DL</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+
+        /* ── RESET & BASE ── */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #0d1b2a;
+            --navy-light: #1a2e45;
+            --amber: #e8a020;
+            --amber-dark: #c4851a;
+            --white: #ffffff;
+            --grey: #8a9ab0;
+            --font: 'Inter', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--navy);
+            color: var(--white);
+            font-family: var(--font);
+            line-height: 1.6;
+        }
+
+        /* ── NAVIGATION ── */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(13, 27, 42, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(232, 160, 32, 0.15);
+        }
+
+        nav img {
+            height: 45px;
+            width: auto;
+        }
+
+        nav a {
+            background-color: var(--amber);
+            color: var(--navy);
+            text-decoration: none;
+            padding: 10px 24px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: background-color 0.2s ease;
+        }
+
+        nav a:hover {
+            background-color: var(--amber-dark);
+        }
+
+        /* ── HERO ── */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 120px 40px 80px;
+            background: radial-gradient(ellipse at top, #1a2e45 0%, #0d1b2a 70%);
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            line-height: 1.2;
+            max-width: 800px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 span {
+            color: var(--amber);
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: var(--grey);
+            max-width: 600px;
+            margin-bottom: 48px;
+            font-weight: 300;
+        }
+
