@@ -649,7 +649,7 @@
             const email = document.getElementById('emailInput').value;
             const success = document.getElementById('successMessage');
 
-            if (!email || !email.includes('@')) {
+            if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
                 alert('Please enter a valid email address.');
                 return;
             }
